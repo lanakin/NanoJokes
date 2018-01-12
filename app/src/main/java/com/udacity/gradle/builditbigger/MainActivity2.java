@@ -1,13 +1,13 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
+import com.udacity.gradle.builditbigger.jokesdisplaylib.JokeActivity;
 import com.udacity.gradle.builditbigger.jokeslib.JokeTeller;
 
 
@@ -43,17 +43,22 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-
         //Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
         JokeTeller jokester = new JokeTeller();
 
-        Toast jokeP1 = Toast.makeText(this, jokester.getJokeSetup(1), Toast.LENGTH_SHORT); //test with first joke
+        Intent intent = new Intent(this, JokeActivity.class);
+        intent.putStringArrayListExtra(JokeActivity.JOKES_SETUP_KEY, jokester.getJokesSetup());
+        intent.putStringArrayListExtra(JokeActivity.JOKES_PUNCHLINE_KEY, jokester.getJokesPunchline());
+
+        startActivity(intent);
+
+        /*Toast jokeP1 = Toast.makeText(this, jokester.getJokeSetup(1), Toast.LENGTH_SHORT); //test with first joke
         jokeP1.setGravity(Gravity.CENTER,0,0);
         jokeP1.show(); //test
 
         Toast jokeP2 = Toast.makeText(this, jokester.getJokePunchline(1), Toast.LENGTH_SHORT);
         jokeP2.setGravity(Gravity.CENTER,0,0);
-        jokeP2.show(); //test
+        jokeP2.show(); //test*/
     }
 
 

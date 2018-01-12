@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.nku.annekenl.jokesdisplaylib">
+
+    <application>
+        <activity android:name=".MainActivity" />
+        <activity android:name="com.udacity.gradle.builditbigger.jokesdisplaylib.JokeActivity"></activity>
+    </application>
+
+</manifest>

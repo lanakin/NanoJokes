@@ -29,4 +29,8 @@ public class JokeTeller
     public String getJokeSetup(int id) { return jokesSetup.get(id); }
 
     public String getJokePunchline(int id) { return jokesPunchline.get(id); }
+
+    public ArrayList<String> getJokesSetup() { return jokesSetup; }
+
+    public ArrayList<String> getJokesPunchline() { return jokesPunchline; }
 }
