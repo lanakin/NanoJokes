@@ -9,6 +9,7 @@ package com.udacity.gradle.builditbigger.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.udacity.gradle.builditbigger.jokeslib.JokeTeller;
 
 import javax.inject.Named;
 
@@ -31,6 +32,19 @@ public class MyEndpoint {
         response.setData("Hi, " + name);
 
         return response;
+    }
+
+    //jokes modification
+    @ApiMethod(name = "getJokesData")
+    public MyBean getJokesData() {
+        MyBean backendObj = new MyBean();
+
+        //set data
+        JokeTeller jokester = new JokeTeller();
+        backendObj.setJokesSetupData(jokester.getJokesSetup());
+        backendObj.setJokesPunchlineData(jokester.getJokesPunchline());
+
+        return backendObj;
     }
 
 }

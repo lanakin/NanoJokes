@@ -43,7 +43,18 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        //Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();  //setup
+
+        //using java library
+        /*Toast jokeP1 = Toast.makeText(this, jokester.getJokeSetup(1), Toast.LENGTH_SHORT); //test with first joke
+        jokeP1.setGravity(Gravity.CENTER,0,0);
+        jokeP1.show(); //test
+
+        Toast jokeP2 = Toast.makeText(this, jokester.getJokePunchline(1), Toast.LENGTH_SHORT);
+        jokeP2.setGravity(Gravity.CENTER,0,0);
+        jokeP2.show(); //test*/
+
+        //using android library
         JokeTeller jokester = new JokeTeller();
 
         Intent intent = new Intent(this, JokeActivity.class);
@@ -52,14 +63,10 @@ public class MainActivity2 extends AppCompatActivity {
 
         startActivity(intent);
 
-        /*Toast jokeP1 = Toast.makeText(this, jokester.getJokeSetup(1), Toast.LENGTH_SHORT); //test with first joke
-        jokeP1.setGravity(Gravity.CENTER,0,0);
-        jokeP1.show(); //test
-
-        Toast jokeP2 = Toast.makeText(this, jokester.getJokePunchline(1), Toast.LENGTH_SHORT);
-        jokeP2.setGravity(Gravity.CENTER,0,0);
-        jokeP2.show(); //test*/
     }
+
+
+
 
 
 }

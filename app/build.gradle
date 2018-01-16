@@ -16,6 +16,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {  //temporary fix for annotations processor
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
     }
     buildTypes {
         release {
@@ -23,16 +29,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //androidTestCompile --> newer way
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs'
     })
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.google.android.gms:play-services-ads:9.8.0'
+    implementation 'com.android.support:appcompat-v7:26.1.0'  //compile --> implementation
+    implementation 'com.google.android.gms:play-services-ads:9.8.0'
 
-    compile project(':jokesLib')
-    compile project(':jokesdisplaylib')
+    implementation project(':jokesLib')
+    implementation project(':jokesdisplaylib')
+    implementation project(':backend')
 }
