@@ -17,6 +17,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        multiDexEnabled true  //error unable to merge dex
+
         javaCompileOptions {  //temporary fix for annotations processor
             annotationProcessorOptions {
                 includeCompileClasspath true
@@ -30,6 +32,24 @@ android {
         }
     }
 
+    //errors with these "More than one file was found with OS independent path..."
+    packagingOptions {
+       /* exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/sep_approx_spanish.txt'
+        exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/gen_approx_greek.txt'
+        exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/gen_exact_polish.txt'
+        exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/gen_approx_cyrillic.txt'
+        exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/gen_approx_english.txt'
+        exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/ash_rules_french.txt'
+        exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/ash_exact_common.txt'
+        exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/gen_approx_greeklatin.txt'
+        exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/lang.txt'
+        exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/ash_exact_russian.txt'*/
+        //'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/ash_exact_german.txt' ok too many
+       exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/bm/*'
+       exclude 'com/google/appengine/repackaged/org/codehaus/jackson/impl/VERSION.txt'
+       exclude 'com/google/appengine/repackaged/org/apache/commons/codec/language/dmrules.txt'
+    }
+
 }
 
 dependencies {
@@ -37,12 +57,14 @@ dependencies {
     //androidTestCompile --> newer way
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
-        exclude group: 'com.google.code.findbugs'
+        exclude group: 'com.google.code.findbugs' //error - multiple versions...
     })
-    implementation 'com.android.support:appcompat-v7:26.1.0'  //compile --> implementation
+    implementation 'com.android.support:appcompat-v7:26.1.0'  //compile --> implementation (new way impl. or api)
     implementation 'com.google.android.gms:play-services-ads:9.8.0'
 
-    implementation project(':jokesLib')
-    implementation project(':jokesdisplaylib')
-    implementation project(':backend')
+   // implementation project(':jokesLib')
+    //compile project(':backend')
+    compile project(path: ':backend', configuration: 'android-endpoints')
+    compile project(':jokesdisplaylib')
+
 }

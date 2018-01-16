@@ -1,14 +1,10 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import com.udacity.gradle.builditbigger.jokesdisplaylib.JokeActivity;
-import com.udacity.gradle.builditbigger.jokeslib.JokeTeller;
 
 
 public class MainActivity2 extends AppCompatActivity {
@@ -55,13 +51,13 @@ public class MainActivity2 extends AppCompatActivity {
         jokeP2.show(); //test*/
 
         //using android library
-        JokeTeller jokester = new JokeTeller();
+       /* JokeTeller jokester = new JokeTeller();
 
         Intent intent = new Intent(this, JokeActivity.class);
         intent.putStringArrayListExtra(JokeActivity.JOKES_SETUP_KEY, jokester.getJokesSetup());
         intent.putStringArrayListExtra(JokeActivity.JOKES_PUNCHLINE_KEY, jokester.getJokesPunchline());
 
-        startActivity(intent);
+        startActivity(intent);*/
 
     }
 
