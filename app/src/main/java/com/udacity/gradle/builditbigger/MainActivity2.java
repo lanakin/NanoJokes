@@ -1,15 +1,17 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.udacity.gradle.builditbigger.jokesdisplaylib.JokeActivity;
 
-public class MainActivity2 extends AppCompatActivity {
+
+public class MainActivity2 extends AppCompatActivity implements JokesAsyncTask.OnJokeReceived
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +63,18 @@ public class MainActivity2 extends AppCompatActivity {
 
         startActivity(intent);*/
 
-       new JokesAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
+       //new JokesAsyncTask().execute(new Pair<Context, String>(this, "Manfred")); //test GCE
+        new JokesAsyncTask(this).execute(this);
 
     }
 
+    public void onJokeReceived(String theJoke)
+    {
+        Intent intent = new Intent(this, JokeActivity.class);
+        intent.putExtra(JokeActivity.JOKE_TO_SHOW_KEY,theJoke);
 
-
+        startActivity(intent);
+    }
 
 
 }

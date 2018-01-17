@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger.jokeslib;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class JokeTeller
 {
@@ -33,4 +34,22 @@ public class JokeTeller
     public ArrayList<String> getJokesSetup() { return jokesSetup; }
 
     public ArrayList<String> getJokesPunchline() { return jokesPunchline; }
+
+    /* Returns a joke that is really two parts combined into one string*/
+    public String getAJoke()
+    {
+        String aJoke = "";
+
+        if(jokesSetup.isEmpty() || jokesPunchline.isEmpty())
+            return "Error - No Jokes";
+        else
+        {
+            Random rand = new Random();
+            int n = rand.nextInt(jokesSetup.size());
+
+            aJoke = jokesSetup.get(n) + "\n" + "\n" + jokesPunchline.get(n);
+        }
+
+        return aJoke;
+    }
 }

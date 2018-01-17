@@ -37,14 +37,33 @@ public class MyEndpoint {
     //jokes modification
     @ApiMethod(name = "getJokesData")
     public MyBean getJokesData() {
-        MyBean backendObj = new MyBean();
+      /*  MyBean backendObj = new MyBean();
 
         //set data
         JokeTeller jokester = new JokeTeller();
-        backendObj.setJokesSetupData(jokester.getJokesSetup());
-        backendObj.setJokesPunchlineData(jokester.getJokesPunchline());
+        //backendObj.setJokesSetupData(jokester.getJokesSetup());
+        //backendObj.setJokesPunchlineData(jokester.getJokesPunchline());
 
-        return backendObj;
+        return backendObj;*/
+
+       //repeated here for now  as weird error where tellMeAJoke is not showing up as a GCE api method
+        MyBean response = new MyBean();
+
+        JokeTeller jokester = new JokeTeller();
+        response.setData(jokester.getAJoke());
+
+        return response;
+    }
+
+    @ApiMethod(name = "tellMeAJoke")
+    public MyBean tellMeAJoke()
+    {
+        MyBean response = new MyBean();
+
+        JokeTeller jokester = new JokeTeller();
+        response.setData(jokester.getAJoke());
+
+        return response;
     }
 
 }
