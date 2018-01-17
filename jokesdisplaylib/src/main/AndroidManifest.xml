@@ -3,7 +3,7 @@
     package="edu.nku.annekenl.jokesdisplaylib">
 
     <application>
-        <activity android:name=".MainActivity" />
+
         <activity android:name="com.udacity.gradle.builditbigger.jokesdisplaylib.JokeActivity"></activity>
     </application>
 

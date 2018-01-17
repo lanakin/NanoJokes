@@ -32,7 +32,8 @@ public class JokesAsyncTask  extends AsyncTask<Pair<Context, String>, Void, Stri
                     // options for running against local devappserver
                     // - 10.0.2.2 is localhost's IP address in Android emulator
                     // - turn off compression when running against local devappserver
-                    .setRootUrl("http://10.0.2.2:8080/_ah/api/")
+                    .setRootUrl("http://10.0.2.2:8080/_ah/api/")  //android emulator  //-works from emulator :)
+                    //.setRootUrl("http://192.122.237.11:8080/_ah/api/")  //172.28.0.68  --uh not working, needs to be same network but still issues :/
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
