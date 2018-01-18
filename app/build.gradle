@@ -16,7 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+                                                            //"android.support.com.udacity.gradle.builditbigger.test.runner.AndroidJUnitRunner"
         multiDexEnabled true  //error unable to merge dex
 
         javaCompileOptions {  //temporary fix for annotations processor
@@ -54,11 +54,22 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     //androidTestCompile --> newer way
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude group: 'com.google.code.findbugs' //error - multiple versions...
     })
+
+    testCompile 'junit:junit:4.12'
+
+    // Testing-only dependencies
+    androidTestCompile 'com.android.support:support-annotations:26.1.0'
+    //androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    //androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2.2'
+    androidTestCompile 'com.android.support.test:rules:0.5'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+
     implementation 'com.android.support:appcompat-v7:26.1.0'  //compile --> implementation (new way impl. or api)
     implementation 'com.google.android.gms:play-services-ads:9.8.0'
 

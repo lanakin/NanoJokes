@@ -64,7 +64,8 @@ public class MainActivity2 extends AppCompatActivity implements JokesAsyncTask.O
         startActivity(intent);*/
 
        //new JokesAsyncTask().execute(new Pair<Context, String>(this, "Manfred")); //test GCE
-        new JokesAsyncTask(this).execute(this);
+        //new JokesAsyncTask(this).execute(this);
+        new JokesAsyncTask(this).execute();
 
     }
 

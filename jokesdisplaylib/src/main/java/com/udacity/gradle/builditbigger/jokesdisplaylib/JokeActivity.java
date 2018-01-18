@@ -23,17 +23,17 @@ public class JokeActivity extends AppCompatActivity {
         //ArrayList<String> jokesP2  = getIntent().getStringArrayListExtra(JOKES_PUNCHLINE_KEY);
 
         //show a joke
-       /* Toast setupToast = Toast.makeText(this, jokesP1.get(1), Toast.LENGTH_SHORT); //test with first joke
+       /* Toast setupToast = Toast.makeText(this, jokesP1.get(1), Toast.LENGTH_SHORT); //test
         setupToast.setGravity(Gravity.CENTER,0,0);
-        setupToast.show(); //test
+        setupToast.show();
 
         Toast punchlineToast = Toast.makeText(this, jokesP2.get(1), Toast.LENGTH_SHORT);
         punchlineToast.setGravity(Gravity.CENTER,0,0);
-        punchlineToast.show(); //test*/
+        punchlineToast.show();
 
         /*Toast setupToast = Toast.makeText(this, getIntent().getStringExtra(JOKE_TO_SHOW_KEY), Toast.LENGTH_SHORT); //single string
         setupToast.setGravity(Gravity.CENTER,0,0);
-        setupToast.show(); *///test
+        setupToast.show();  */
 
         ((TextView) findViewById(R.id.joketextView)).setText(getIntent().getStringExtra(JOKE_TO_SHOW_KEY));
     }

@@ -32,6 +32,8 @@ dependencies {
     //annotationProcessor 'com.google.appengine:appengine-api-1.0-sdk:1.9.42' //nvm made a fix/change in app.build
 
     implementation project(':jokesLib')
+
+   // testCompile 'junit:junit:4.12'
 }
 
 appengine {

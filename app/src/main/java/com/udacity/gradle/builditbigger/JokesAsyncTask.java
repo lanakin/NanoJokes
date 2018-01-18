@@ -20,7 +20,8 @@ import java.io.IOException;
  */
 
 //public class JokesAsyncTask  extends AsyncTask<Pair<Context, String>, Void, String>
-public class JokesAsyncTask  extends AsyncTask<Context, Void, String>
+//public class JokesAsyncTask  extends AsyncTask<Context, Void, String>
+public class JokesAsyncTask  extends AsyncTask<Void, Void, String>
 {
     private static MyApi myApiService = null;
     private Context context;
@@ -38,7 +39,8 @@ public class JokesAsyncTask  extends AsyncTask<Context, Void, String>
 
     @Override
     //protected String doInBackground(Pair<Context, String>... params)
-    protected String doInBackground(Context... params)
+    //protected String doInBackground(Context... params)
+    protected String doInBackground(Void... params)
     {
         if(myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
@@ -70,7 +72,7 @@ public class JokesAsyncTask  extends AsyncTask<Context, Void, String>
             return e.getMessage();
         }*/
 
-       context = params[0];
+       //context = params[0];
 
        //random number - apiservice getjokes - toast string
         try {
