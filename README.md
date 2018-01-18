@@ -24,7 +24,7 @@ Gradle to manage apps of increasing complexity. You'll learn to:
 * Factor reusable Android functionality into an Android library
 * Configure a multi project build to compile your libraries and app
 * Use the Gradle App Engine plugin to deploy a backend
-* Configure an integration test suite that runs against the local App Engine development server
+* Configure an integration com.udacity.gradle.builditbigger.test suite that runs against the local App Engine development server
 
 ## How Do I Complete this Project?
 
@@ -88,7 +88,7 @@ joke, then launch the activity from your Android Library to display it.
 
 ### Step 4: Add Functional Tests
 
-Add code to test that your Async task successfully retrieves a non-empty
+Add code to com.udacity.gradle.builditbigger.test that your Async task successfully retrieves a non-empty
 string. For a refresher on setting up Android tests, check out demo 4.09.
 
 ### Step 5: Add a Paid Flavor
@@ -139,7 +139,7 @@ To tie it all together, create a Gradle task that:
 
 ### Optional Components
 
-Once you have a functioning project, consider adding more features to test your Gradle and Android skills. Here are a few suggestions:
+Once you have a functioning project, consider adding more features to com.udacity.gradle.builditbigger.test your Gradle and Android skills. Here are a few suggestions:
 
 * Make the free app variant display interstitial ads between the main activity and the joke-displaying activity.
 * Have the app display a loading indicator while the joke is being fetched from the server.
