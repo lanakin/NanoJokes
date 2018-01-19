@@ -16,7 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-                                                            //"android.support.com.udacity.gradle.builditbigger.test.runner.AndroidJUnitRunner"
+
         multiDexEnabled true  //error unable to merge dex
 
         javaCompileOptions {  //temporary fix for annotations processor
@@ -29,6 +29,21 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "default"  //only one dimension since I don't believe it's needed for this project
+    /* Android plugin 3.0.0 and higher include a new dependency mechanism that automatically matches variants
+    when consuming a library. This means an app's debug variant automatically consumes a library's debug variant, and so on.
+    It also works when using flavors—an app's freeDebug variant will consume a library's freeDebug variant.
+     */
+
+    productFlavors {
+        free {
+            "com.udacity.gradle.builditbigger.free"
+        }
+        paid {
+            "com.udacity.gradle.builditbigger.paid"
         }
     }
 
@@ -71,9 +86,10 @@ dependencies {
     androidTestCompile 'com.android.support.test:runner:0.5'
 
     implementation 'com.android.support:appcompat-v7:26.1.0'  //compile --> implementation (new way impl. or api)
-    implementation 'com.google.android.gms:play-services-ads:9.8.0'
 
-   // implementation project(':jokesLib')
+    freeImplementation 'com.google.android.gms:play-services-ads:9.8.0'
+    //**only compile and use ads lib in free flavor
+
     //compile project(':backend')
     compile project(path: ':backend', configuration: 'android-endpoints')
     compile project(':jokesdisplaylib')
