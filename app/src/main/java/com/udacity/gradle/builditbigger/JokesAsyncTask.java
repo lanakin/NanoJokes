@@ -50,9 +50,9 @@ public class JokesAsyncTask  extends AsyncTask<Void, Void, String>
                     // options for running against local devappserver
                     // - 10.0.2.2 is localhost's IP address in Android emulator
                     // - turn off compression when running against local devappserver
-                    //.setRootUrl("http://10.0.2.2:8080/_ah/api/")  //android emulator  //-works from emulator :)
+                    .setRootUrl("http://10.0.2.2:8080/_ah/api/")  //android emulator  //-works from emulator :)
 
-                    .setRootUrl("http://172.28.0.68:8080/_ah/api/")  //working also needed to add appengine { httpAddress = "0.0.0.0" } in build.gradle & same network~
+                    //.setRootUrl("local_machine:8080/_ah/api/")  //working also needed to add appengine { httpAddress = "0.0.0.0" } in build.gradle & same network~
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {

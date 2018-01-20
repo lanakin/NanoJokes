@@ -32,7 +32,7 @@ android {
         }
     }
 
-    flavorDimensions "default"  //only one dimension since I don't believe it's needed for this project
+    flavorDimensions "default"  //only one dimension
     /* Android plugin 3.0.0 and higher include a new dependency mechanism that automatically matches variants
     when consuming a library. This means an app's debug variant automatically consumes a library's debug variant, and so on.
     It also works when using flavors—an app's freeDebug variant will consume a library's freeDebug variant.
