@@ -1,4 +1,12 @@
-**backend - run configuration works**
+**backend - run configuration works (output below)**
+
+**also, removing myApi-v1-1.23.0-SNAPSHOT.jar from app/libs
+- ran app: assemble, build and backend: assemble, build gradle tasks without issues.
+-tested app again without issues (on an emulator).
+-please note: this file was only added to fix editor issues during development -
+ (for reference:
+ https://discussions.udacity.com/t/cannot-resolve-symbol-myapi-fix/484903 )
+ **/
 
 Executing tasks: [:backend:assemble]
 
