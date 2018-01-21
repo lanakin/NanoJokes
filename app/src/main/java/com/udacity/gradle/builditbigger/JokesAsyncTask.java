@@ -8,12 +8,15 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
+
 import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
+//errors with this in editor for Android Studio 3.0; app will work though if backend built
+//or myApi snapshot jar is included
 
 import java.io.IOException;
 
 
-//import com.udacity.gradle.builditbigger.backend.myApi.MyApi; //errors with this in editor for Android Studio 3.0; app will work though
+
 
 /**
  * Created by annekenl1 on 1/16/18.
@@ -77,7 +80,7 @@ public class JokesAsyncTask  extends AsyncTask<Void, Void, String>
 
        //random number - apiservice getjokes - toast string
         try {
-            return myApiService.getJokesData().execute().getData(); //"MyBean" object is returned & calls its getData() which returns a string "Hi, name"
+            return myApiService.tellMeAJoke().execute().getData();
         } catch (IOException e) {
             Log.e("jokesasynctask",e.getMessage());
             return e.getMessage();
