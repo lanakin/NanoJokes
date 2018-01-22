@@ -1,41 +1,10 @@
-**backend - run configuration works (output below)**
+/**If you build the backend first, then the app - the myApi..snapshot jar  in 'app/libs' is not needed.
+However, the myApi jar file is needed if you try to build and run the app first; as on my android studio 3.0.1
+it fails and points to errors of 'myApi' is not recognized. The myApi jar file is currently included in my repo
+under 'app/libs'. My understanding from the forums is this is a quirk from the latest version of android studio and
+ gradle with the old GCM backend and including the jar was the provided solution. So please run the app configuration first
+ and then the backend. Also, might need to :clean, exit and restart android studio after any errors.
 
-**also, removing myApi-v1-1.23.0-SNAPSHOT.jar from app/libs
-- ran app: assemble, build and backend: assemble, build gradle tasks without issues.
--tested app again without issues (on an emulator).
--please note: this file was only added to fix editor issues during development -
  (for reference:
  https://discussions.udacity.com/t/cannot-resolve-symbol-myapi-fix/484903 )
  **/
-
-Executing tasks: [:backend:assemble]
-
-Configuration on demand is an incubating feature.
-Gradle now uses separate output directories for each JVM language, but this build assumes a single directory for all classes from a source set. This behaviour has been deprecated and is scheduled to be removed in Gradle 5.0
-	at build_8tkjqlrhrlq0g42zx5a8ni44y.run(/Users/annekenl1/Documents/ANDROID_NANO-workspace/github/NanoJokes/backend/build.gradle:19)
-The setTestClassesDir(File) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the setTestClassesDirs(FileCollection) method instead.
-	at build_8tkjqlrhrlq0g42zx5a8ni44y.run(/Users/annekenl1/Documents/ANDROID_NANO-workspace/github/NanoJokes/backend/build.gradle:19)
-:backend:appengineDownloadSdk
-:jokesLib:compileJava
-warning: [options] bootstrap class path not set in conjunction with -source 1.7
-1 warning
-
-:backend:compileJava
-warning: [options] bootstrap class path not set in conjunction with -source 1.7
-
-:backend:processResources NO-SOURCE
-:backend:classes
-:backend:appengineEndpointsGetClientLibs
-API client library written to /Users/annekenl1/Documents/ANDROID_NANO-workspace/github/NanoJokes/backend/build/client-libs/myApi-v1-java.zip
-:backend:appengineEndpointsGetDiscoveryDocs
-API Discovery Document written to /Users/annekenl1/Documents/ANDROID_NANO-workspace/github/NanoJokes/backend/build/discovery-docs/myApi-v1-rpc.discovery
-API Discovery Document written to /Users/annekenl1/Documents/ANDROID_NANO-workspace/github/NanoJokes/backend/build/discovery-docs/myApi-v1-rest.discovery
-:jokesLib:processResources NO-SOURCE
-:jokesLib:classes
-:jokesLib:jar
-:backend:war
-:backend:appengineExplodeApp
-:backend:assemble
-
-BUILD SUCCESSFUL in 6s
-8 actionable tasks: 8 executed
